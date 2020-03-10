@@ -51,6 +51,9 @@ module.exports.datastores = {
     // adapter: 'sails-mysql',
     // url: 'mysql://user:password@host:port/database',
 
+    adapter: 'sails-postgresql',
+    url: 'postgresql://postgres:nomeacuerdo@192.168.1.109:5432/amperdb',
+
   },
 
 

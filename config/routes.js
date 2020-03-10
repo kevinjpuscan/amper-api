@@ -8,6 +8,7 @@
  * https://sailsjs.com/anatomy/config/routes-js
  */
 
+
 module.exports.routes = {
 
 
@@ -43,8 +44,15 @@ module.exports.routes = {
   //  ╔═╗╔═╗╦  ╔═╗╔╗╔╔╦╗╔═╗╔═╗╦╔╗╔╔╦╗╔═╗
   //  ╠═╣╠═╝║  ║╣ ║║║ ║║╠═╝║ ║║║║║ ║ ╚═╗
   //  ╩ ╩╩  ╩  ╚═╝╝╚╝═╩╝╩  ╚═╝╩╝╚╝ ╩ ╚═╝
+  '/api/v1/test' :  'v1/TestController.test',
 
+  //Dashboard
+  '/api/v1/dashboard/lastWatt' :  'v1/DashboardController.lastWatt',
+  '/api/v1/dashboard/lastDay' :  'v1/DashboardController.lastDay',
 
+  //Alerts
+
+  //Históric
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
   //  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗
