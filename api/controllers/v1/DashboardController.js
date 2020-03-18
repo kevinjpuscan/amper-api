@@ -37,5 +37,73 @@ module.exports = {
             res.status(500);
             res.send('Error al obtener la data');
         }
+    },
+
+    kwhActualDay: async function (req,res){
+        try {
+            let data = await Vista.getDatastore().sendNativeQuery(`
+            select round(((sum(coalesce(w/360,0))/1000))::numeric,2) as value
+            from tp_data_electric, unnest(watts) WITH ORDINALITY w
+            where date_trunc('day',tiem_register)=date_trunc('day',now());
+            `);
+            res.json(data.rows[0]);
+        } catch (error) {
+            res.status(500);
+            res.send('Error al obtener la data');
+        }
+    },
+
+    kwhActualMonth: async function (req,res){
+        try {
+            let data = await Vista.getDatastore().sendNativeQuery(`
+            with data as (
+                select w/360 as watts,tiem_register
+                  from tp_data_electric, unnest(watts) WITH ORDINALITY w
+                where date_trunc('month',tiem_register)=date_trunc('month',now())
+                union all
+                select w/360 as watts,tiem_register
+                  from tp_data_electric_historic, unnest(watts) WITH ORDINALITY w
+                where date_trunc('month',tiem_register)=date_trunc('month',now()))
+               select round((sum(watts)/1000)::numeric,2) as value from data;
+            `);
+            res.json(data.rows[0]);
+        } catch (error) {
+            res.status(500);
+            res.send('Error al obtener la data');
+        }
+    },
+
+    costActualDay: async function (req,res){
+        try {
+            let data = await Vista.getDatastore().sendNativeQuery(`
+            select round(((sum(coalesce(w/360,0))/1000)*0.6387)::numeric,2) as value
+            from tp_data_electric, unnest(watts) WITH ORDINALITY w
+            where date_trunc('day',tiem_register)=date_trunc('day',now());
+            `);
+            res.json(data.rows[0]);
+        } catch (error) {
+            res.status(500);
+            res.send('Error al obtener la data');
+        }
+    },
+
+    costActualMonth: async function (req,res){
+        try {
+            let data = await Vista.getDatastore().sendNativeQuery(`
+            with data as (
+                select w/360 as watts,tiem_register
+                  from tp_data_electric, unnest(watts) WITH ORDINALITY w
+                where date_trunc('month',tiem_register)=date_trunc('month',now())
+                union all
+                select w/360 as watts,tiem_register
+                  from tp_data_electric_historic, unnest(watts) WITH ORDINALITY w
+                where date_trunc('month',tiem_register)=date_trunc('month',now()))
+               select round(((sum(watts)/1000)*0.6387)::numeric,2) as value from data;
+            `);
+            res.json(data.rows[0]);
+        } catch (error) {
+            res.status(500);
+            res.send('Error al obtener la data');
+        }
     }
 }

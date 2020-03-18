@@ -50,11 +50,17 @@ module.exports.routes = {
   '/api/v1/dashboard/lastWatt' :  'v1/DashboardController.lastWatt',
   '/api/v1/dashboard/lastDay' :  'v1/DashboardController.lastDay',
   '/api/v1/dashboard/lastValuesDay' :  'v1/DashboardController.lastValuesDay',
+  '/api/v1/dashboard/kwhActualDay' :  'v1/DashboardController.kwhActualDay',
+  '/api/v1/dashboard/costActualDay' :  'v1/DashboardController.costActualDay',
+  '/api/v1/dashboard/kwhActualMonth' :  'v1/DashboardController.kwhActualMonth',
+  '/api/v1/dashboard/costActualMonth' :  'v1/DashboardController.costActualMonth',
 
   //Alerts
 
   //Históric
   '/api/v1/historic/kwhDayDetail/:daySelect?' :  'v1/HistoricController.kwhDayDetail',
+  '/api/v1/historic/kwhDayTotal/:daySelect?' :  'v1/HistoricController.kwhDayTotal',
+  '/api/v1/historic/costDayTotal/:daySelect?' :  'v1/HistoricController.costDayTotal',
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
   //  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗
