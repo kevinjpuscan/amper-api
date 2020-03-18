@@ -54,6 +54,7 @@ module.exports.routes = {
   //Alerts
 
   //Históric
+  '/api/v1/historic/kwhDayDetail/:daySelect?' :  'v1/HistoricController.kwhDayDetail',
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
   //  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗
