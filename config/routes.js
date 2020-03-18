@@ -49,6 +49,7 @@ module.exports.routes = {
   //Dashboard
   '/api/v1/dashboard/lastWatt' :  'v1/DashboardController.lastWatt',
   '/api/v1/dashboard/lastDay' :  'v1/DashboardController.lastDay',
+  '/api/v1/dashboard/lastValuesDay' :  'v1/DashboardController.lastValuesDay',
 
   //Alerts
 
