@@ -1,38 +1,21 @@
 {
   "name": "amper-api",
-  "private": true,
-  "version": "0.0.0",
-  "description": "a Sails application",
-  "keywords": [],
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
   "dependencies": {
-    "@sailshq/connect-redis": "^3.2.1",
-    "@sailshq/lodash": "^3.10.3",
-    "@sailshq/socket.io-redis": "^5.2.0",
-    "async": "2.0.1",
-    "grunt": "1.0.1",
-    "sails": "^1.0.2",
-    "sails-hook-grunt": "^3.0.2",
-    "sails-hook-orm": "^2.0.0-16",
-    "sails-hook-sockets": "^1.4.0",
-    "sails-postgresql": "^1.0.2"
+    "express": "^4.17.1",
+    "pg": "^8.3.3",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.3.5"
   },
   "devDependencies": {
-    "@sailshq/eslint": "^4.19.3"
-  },
-  "scripts": {
-    "start": "NODE_ENV=production node app.js",
-    "test": "npm run lint && npm run custom-tests && echo 'Done.'",
-    "lint": "eslint . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
-    "custom-tests": "echo \"(No other custom tests yet.)\" && echo"
-  },
-  "main": "app.js",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/kevinpuscan/amper-api.git"
-  },
-  "author": "kevinpuscan",
-  "license": "",
-  "engines": {
-    "node": ">=12.16"
+    "nodemon": "^2.0.4"
   }
 }
